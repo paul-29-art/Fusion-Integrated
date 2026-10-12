@@ -725,3 +725,21 @@ class StudentConductIncidentSerializer(serializers.ModelSerializer):
         model = ConductIncident
         fields = ("id", "kind", "note", "waived", "waived_reason", "created_at")
         read_only_fields = fields
+
+from rest_framework import serializers
+from .models import LeaveCategory, LeaveRequest, LeaveBalance
+
+class LeaveCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LeaveCategory
+        fields = '__all__'
+
+class LeaveRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LeaveRequest
+        fields = '__all__'
+
+class LeaveBalanceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LeaveBalance
+        fields = '__all__'
