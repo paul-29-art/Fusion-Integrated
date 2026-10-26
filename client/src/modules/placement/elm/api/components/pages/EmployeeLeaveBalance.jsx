@@ -8,23 +8,19 @@ const EmployeeLeaveBalance = () => {
   useEffect(() => {
     const fetchLeaveBalance = async () => {
       try {
-        const response = await
-axios.get('/api/elm/leave-balance/');
+        const response = await axios.get('/api/elm/leave-balance/');
         setLeaveBalance(response.data);
       } catch (error) {
-        console.error('Error fetching leave balance:',
-error);
+        console.error('Error fetching leave balance:', error);
       }
     };
 
     const fetchRequestHistory = async () => {
       try {
-        const response = await
-axios.get('/api/elm/request-history/');
+        const response = await axios.get('/api/elm/request-history/');
         setRequestHistory(response.data);
       } catch (error) {
-        console.error('Error fetching request history:',
-error);
+        console.error('Error fetching request history:', error);
       }
     };
 
@@ -46,8 +42,7 @@ error);
       <ul>
         {requestHistory.map((request) => (
           <li key={request.id}>
-            {request.category} from {request.startDate} to
-{request.endDate}
+            {request.category} from {request.startDate} to {request.endDate}
           </li>
         ))}
       </ul>
