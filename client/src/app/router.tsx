@@ -12,6 +12,7 @@ import LoginPage from "./LoginPage";
 import { MODULE_REGISTRY } from "./registry";
 import { Dashboard, NotFound, Shell } from "./Shell";
 import ELMRoutes from '../modules/placement/elm/routes';
+import RSPCRoutes from '../modules/rspc/routes';
 
 // A separate audience and credential, so none of it enters the institute bundle.
 const RecruiterLoginPage = lazy(() => import("../recruiter/RecruiterLoginPage"));
@@ -110,6 +111,7 @@ export function AppRoutes() {
     { index: true, element: <Dashboard /> },
     { path: "dashboard", element: <Dashboard /> },
     { path: "elm/*", element: <ELMRoutes /> },
+    { path: "rspc/*", element: <RSPCRoutes /> },
     ...moduleRoutes,
     ...(ready
       ? [{ path: "*", element: <NotFound /> }]
